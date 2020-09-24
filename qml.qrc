@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Alime_MainWindow.qml</file>
+        <file>Alime_TitleBar.qml</file>
+        <file>Alime_WindowBase.qml</file>
+    </qresource>
+</RCC>
