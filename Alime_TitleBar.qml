@@ -12,6 +12,7 @@ Rectangle {
             left: parent.left
             bottom: parent.bottom
         }
+
         function maximalizeFunc(protect) {
             window.maximalized = !window.maximalized
             if(protect === true) {
@@ -258,7 +259,7 @@ Rectangle {
             ColorAnimation { duration: 200 }
         }
         Behavior on opacity {
-            OpacityAnimator { duration: 100 }
+            OpacityAnimator { duration: 200 }
         }
     }
 }

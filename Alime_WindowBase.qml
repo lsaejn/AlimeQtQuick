@@ -1,5 +1,9 @@
 import QtQuick 2.14
 
+/*
+windowBase用于改变窗口大小
+Item作为不可见元素附着在窗口四周
+*/
 Item {
     id: frame
     property Item content

@@ -23,6 +23,8 @@ Window{
                         windowAbs.y + window.y)
     }
 
+
+
     Alime_TitleBar {
         id: topBar
         anchors{
@@ -30,7 +32,6 @@ Window{
             left: parent.left
             right: parent.right
         }
-
         height: 40
         color: "black"
         smooth: true
