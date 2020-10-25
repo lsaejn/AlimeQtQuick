@@ -25,6 +25,17 @@ Rectangle {
             else{
                  window.showNormal()
             }
+
+        }
+
+        Timer {
+            id: protect2
+            interval: 500
+            repeat: false
+            property bool protect: false
+            onTriggered: {
+                protect=false
+            }
         }
 
         Timer {
@@ -48,19 +59,31 @@ Rectangle {
             }
         }
 
-        onDoubleClicked: maximalizeFunc(true)
+        onDoubleClicked: {
+            console.debug("dbclicked")
+            maximalizeFunc(true)
+            protect2.protect=true
+            protect2.restart()
+            console.debug(protect2.protect)
+        }
         onPressed: {
             startMousePos = absoluteMousePos(this)
             startWindowPos = Qt.point(window.x, window.y)
             startWindowSize = Qt.size(window.width, window.height)
         }
         onMouseXChanged:{
+            if(protect2.protect)
+                return
+            console.debug("xchanged")
             if(pressed && !window.maximalized && !moveProtector.protect) {
                 var abs = absoluteMousePos(this)
                 window.x = startWindowPos.x + (abs.x - startMousePos.x)
             }
         }
         onMouseYChanged: {
+            if(protect2.protect)
+                return
+           console.debug("ychanged")
             if(pressed && !moveProtector.protect) {
                 var abs = absoluteMousePos(this)
                 window.y = Math.max(Screen.virtualY, startWindowPos.y + (abs.y - startMousePos.y))
